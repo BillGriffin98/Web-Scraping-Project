@@ -12,7 +12,7 @@ This project is a Python script for scraping information about individuals burie
 
 ## Overview
 
-Westminster Abbey is a historic place with many notable burials. This project aims to collect data on individuals buried there, such as their birth years and Wikipedia links. The collected data, including the count of hyperlinks in their Wikipedia articles, can be useful for historical analysis, genealogy research, or simply for exploring the history of Westminster Abbey's inhabitants. The count of hyperlinks serves as a heuristic to assess the 'noteworthiness' of the individual, providing an additional dimension for analysis.
+Westminster Abbey is a historic place with many notable burials. This project aims to collect data on individuals buried there, such as their birth years and Wikipedia links. The collected data, including the number of hyperlinks in their Wikipedia articles, can be useful for historical analysis, genealogy research, or simply for exploring the history of Westminster Abbey's inhabitants. The number of hyperlinks serves as a heuristic to assess the 'noteworthiness' of the individual, providing an additional dimension for analysis.
 
 ## Technologies Used
 
@@ -66,7 +66,7 @@ import csv  # Import csv for reading and writing CSV files
 from birthDateRetriever import get_birth_year_from_wikidata, get_century_from_year  # Takes a WikidataID and returns the associated birth-year
 from noteworthiness import count_hyperlinks_in_wikipedia  # counts the number of hyperlinks within a Wikipedia page
 from wikidataID import get_wikidata_id_from_wikipedia  # Takes a Wikipedia URL and returns its associated Wikidata ID
-from isHuman import is_human_entity  # Checks if a Wikipedia page is describing a human or not.
+from isHuman import is_human_entity  # Checks if a Wikipedia page is describing a human.
 ```
 This imports necessary libraries and custom functions for scraping Wikipedia data.
 
@@ -125,10 +125,10 @@ for i in range(0, 16):
                 wikidata_id,        # Wikidata ID
                 get_birth_year_from_wikidata(wikidata_id),  # Birth year
                 get_century_from_year(get_birth_year_from_wikidata(wikidata_id)),  # Century
-                count_hyperlinks_in_wikipedia(wikipedia_title)  # Count of hyperlinks in the Wikipedia article
+                count_hyperlinks_in_wikipedia(wikipedia_title)  # Number of hyperlinks in the Wikipedia article
             ])
 ```
-This collects data about individuals buried at Westminster Abbey, including their birth year, century, and count of hyperlinks in their Wikipedia articles, after ensuring their Wikidata ID is valid and represents a human.
+This collects data about individuals buried at Westminster Abbey, including their birth year, century, and number of hyperlinks in their Wikipedia articles, after ensuring their Wikidata ID is valid and represents a human.
 
 ### Writing to CSV
 ```python
